@@ -1,0 +1,47 @@
+
+cmd // once in one pc 
+*npm install -g @vue/cli
+
+for new project
+*vue create projectName
+*vue 3
+
+do as command
+
+open a new cmd in that project
+*npm i vue-router@next
+*npm i vue-axios
+*npm i vuex@next --save
+*npm install bootstrap
+
+
+now edit in the project
+pacage.jason
+
+"rules": {
+      "vue/multi-word-component-names": "off"
+    }
+
+vue.config.js //remove all code and set this
+
+module.exports = {
+  devServer: {
+    port: 8081
+  }
+} 
+
+
+create a file name "serve.js" and the code of that file :
+
+var express  = require('express')
+var app  = express()
+var server = app.listen(process.env.PORT || 8081, () => {
+    console.log('Server is started on 127.0.0.1:'+ (process.env.PORT || 8081))
+})
+
+
+public->index.html change for the theme
+
+
+create a router.js file in src folder
+import { createWebHistory, createRouter } from "vue-router";
