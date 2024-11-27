@@ -1,7 +1,7 @@
 <template>
   <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a href="home" class="app-brand-link">
+            <a href="/" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
@@ -63,19 +63,19 @@
 
           <ul class="menu-inner py-1">
             
-            <li class="menu-item active open">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <li class="menu-item" :class="{ 'active open': isActive('dashboards') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('dashboards')">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
                 <div data-i18n="Dashboards">Dashboards</div>
               </a>
             </li>
 
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <li class="menu-item" :class="{ 'active open': isActive('product') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('product')">
                 <i class="menu-icon tf-icons bx bx-dock-top"></i>
                 <div data-i18n="Account Settings">Product</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('product')">
                 <li class="menu-item">
                   <a href="pages-account-settings-account.html" class="menu-link">
                     <div data-i18n="Account">Product Add</div>
@@ -89,13 +89,13 @@
               </ul>
             </li>
 
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <li class="menu-item" :class="{ 'active open': isActive('category') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('category')">
                 <i class="menu-icon tf-icons bx bx-layout"></i>
                 <div data-i18n="Layouts">Category</div>
               </a>
 
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('category')">
                 <li class="menu-item">
                   <a href="layouts-without-menu.html" class="menu-link">
                     <div data-i18n="Without menu">Category Add</div>
@@ -109,40 +109,31 @@
               </ul>
             </li>
 
-            
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <li class="menu-item" :class="{ 'active open': isActive('suppliers') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('suppliers')">
                 <i class="menu-icon tf-icons bx bx-store"></i>
                 <div data-i18n="Front Pages">Suppliers</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('suppliers')">
                 <li class="menu-item">
-                  <a
-                    href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/front-pages/landing-page.html"
-                    class="menu-link"
-                    target="_blank">
+                  <a href="#" class="menu-link" target="_blank">
                     <div data-i18n="Landing">Suppliers Add</div>
                   </a>
                 </li>
                 <li class="menu-item">
-                  <a
-                    href="https://demos.themeselection.com/sneat-bootstrap-html-admin-template/html/front-pages/pricing-page.html"
-                    class="menu-link"
-                    target="_blank">
+                  <a href="/" class="menu-link" target="_blank">
                     <div data-i18n="Pricing">Suppliers List</div>
                   </a>
                 </li>
               </ul>
             </li>
 
-            
-            
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <li class="menu-item" :class="{ 'active open': isActive('customer') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('customer')">
                 <i class="menu-icon tf-icons bx bx-lock-open-alt"></i>
                 <div data-i18n="Authentications">Customer</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('customer')">
                 <li class="menu-item">
                   <a href="auth-login-basic.html" class="menu-link" target="_blank">
                     <div data-i18n="Basic">Customer Add</div>
@@ -155,12 +146,13 @@
                 </li>
               </ul>
             </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+
+            <li class="menu-item" :class="{ 'active open': isActive('purchase') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('purchase')">
                 <i class="menu-icon tf-icons bx bx-cube-alt"></i>
                 <div data-i18n="Misc">Purchase</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('purchase')">
                 <li class="menu-item">
                   <a href="pages-misc-error.html" class="menu-link">
                     <div data-i18n="Error">Purchase Add</div>
@@ -173,13 +165,13 @@
                 </li>
               </ul>
             </li>
-           
-            <li class="menu-item">
-              <a href="javascript:void(0)" class="menu-link menu-toggle">
+
+            <li class="menu-item" :class="{ 'active open': isActive('purchasereturn') }">
+              <a href="javascript:void(0)" class="menu-link menu-toggle" @click="toggleMenu('purchasereturn')">
                 <i class="menu-icon tf-icons bx bx-box"></i>
                 <div data-i18n="User interface">PurchaseReturn</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('purchasereturn')">
                 <li class="menu-item">
                   <a href="ui-accordion.html" class="menu-link">
                     <div data-i18n="Accordion">Add</div>
@@ -193,13 +185,12 @@
               </ul>
             </li>
 
-            <!-- Extended components -->
-            <li class="menu-item">
-              <a href="javascript:void(0)" class="menu-link menu-toggle">
+            <li class="menu-item" :class="{ 'active open': isActive('sales') }">
+              <a href="javascript:void(0)" class="menu-link menu-toggle" @click="toggleMenu('sales')">
                 <i class="menu-icon tf-icons bx bx-copy"></i>
                 <div data-i18n="Extended UI">Sales</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('sales')">
                 <li class="menu-item">
                   <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
                     <div data-i18n="Perfect Scrollbar">Sales Add</div>
@@ -213,12 +204,12 @@
               </ul>
             </li>
 
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <li class="menu-item" :class="{ 'active open': isActive('salesreturn') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('salesreturn')">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Form Elements">SalesReturn</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('salesreturn')">
                 <li class="menu-item">
                   <a href="forms-basic-inputs.html" class="menu-link">
                     <div data-i18n="Basic Inputs">SalesReturn Add</div>
@@ -231,12 +222,13 @@
                 </li>
               </ul>
             </li>
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+
+            <li class="menu-item" :class="{ 'active open': isActive('inventory') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('inventory')">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Form Layouts">Inventory</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('inventory')">
                 <li class="menu-item">
                   <a href="form-layouts-vertical.html" class="menu-link">
                     <div data-i18n="Vertical Form">Stock Levels</div>
@@ -245,12 +237,12 @@
               </ul>
             </li>
 
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <li class="menu-item" :class="{ 'active open': isActive('user') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('user')">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Form Elements">User</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('user')">
                 <li class="menu-item">
                   <a href="forms-basic-inputs.html" class="menu-link">
                     <div data-i18n="Basic Inputs">User Add</div>
@@ -263,13 +255,13 @@
                 </li>
               </ul>
             </li>
-
-            <li class="menu-item">
-              <a href="javascript:void(0);" class="menu-link menu-toggle">
+            
+            <li class="menu-item" :class="{ 'active open': isActive('report') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('report')">
                 <i class="menu-icon tf-icons bx bx-detail"></i>
                 <div data-i18n="Form Elements">Report</div>
               </a>
-              <ul class="menu-sub">
+              <ul class="menu-sub" v-show="isActive('report')">
                 <li class="menu-item">
                   <a href="forms-basic-inputs.html" class="menu-link">
                     <div data-i18n="Basic Inputs">Purchase Report</div>
@@ -282,7 +274,6 @@
                 </li>
               </ul>
             </li>
-            
           </ul>
         </aside>
 </template>
@@ -290,8 +281,25 @@
 <script>
 export default {
   name: 'Sidebar',
-  props: {
-    msg: String
+  data() {
+    return {
+      activeMenus: [] // Stores active menu states
+    };
+  },
+  methods: {
+    toggleMenu(menu) {
+      const index = this.activeMenus.indexOf(menu);
+      if (index === -1) {
+        // Add the menu to the active list
+        this.activeMenus.push(menu);
+      } else {
+        // Remove the menu from the active list (collapse)
+        this.activeMenus.splice(index, 1);
+      }
+    },
+    isActive(menu) {
+      return this.activeMenus.includes(menu);
+    }
   }
 }
 </script>

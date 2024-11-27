@@ -29,7 +29,7 @@
                 <li class="nav-item lh-1 me-3">
                   <a
                     class="github-button"
-                    href="https://github.com/themeselection/sneat-html-admin-template-free"
+                    href="/"
                     data-icon="octicon-star"
                     data-size="large"
                     data-show-count="true"
@@ -51,11 +51,11 @@
                         <div class="d-flex">
                           <div class="flex-shrink-0 me-3">
                             <div class="avatar avatar-online">
-                              <img src="../../../public/assets/img/avatars/5.png" alt class="w-px-40 h-auto rounded-circle" />
+                              <img src="../../../public/assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
                             </div>
                           </div>
                           <div class="flex-grow-1">
-                            <span class="fw-medium d-block">John Doe</span>
+                            <span class="fw-medium d-block">Nurkhan</span>
                             <small class="text-muted">Admin</small>
                           </div>
                         </div>
@@ -89,7 +89,7 @@
                       <div class="dropdown-divider"></div>
                     </li>
                     <li>
-                      <a class="dropdown-item" href="javascript:void(0);">
+                      <a class="dropdown-item" href="login">
                         <i class="bx bx-power-off me-2"></i>
                         <span class="align-middle">Log Out</span>
                       </a>
