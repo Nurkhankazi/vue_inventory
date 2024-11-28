@@ -236,6 +236,13 @@
                 </li>
               </ul>
             </li>
+            
+            <li class="menu-item">
+                <a href="bill" class="menu-link">
+                  <i class="menu-icon tf-icons bx bx-detail"></i>
+                  <div data-i18n="Vertical Form">Billing System</div>
+                </a>
+            </li>
 
             <li class="menu-item" :class="{ 'active open': isActive('user') }">
               <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('user')">

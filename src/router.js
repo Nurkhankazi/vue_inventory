@@ -12,7 +12,19 @@ const routes =  [
     asias:'/login',
     name:'login',
     component:()=> import('./components/LoginForm')
-}
+  },
+  {
+    path:'/Bill',
+    asias:'/Bill',
+    name:'Bill',
+    component:()=> import('./components/Bill')
+  },
+  {
+    path:'/Invoice',
+    asias:'/Invoice',
+    name:'Invoice',
+    component:()=> import('./components/Invoice')
+  }
 ];
 
 const router = createRouter({
