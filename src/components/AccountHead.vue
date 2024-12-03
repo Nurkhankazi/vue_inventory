@@ -1,6 +1,6 @@
 <template>
     <div class="container mt-5">
-      <h2>Expense Head</h2>
+      <h2>Account Head</h2>
       <form>
         
         <div class="mb-3">
