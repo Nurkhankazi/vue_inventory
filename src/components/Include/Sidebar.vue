@@ -262,6 +262,34 @@
                 </li>
               </ul>
             </li>
+            <li class="menu-item" :class="{ 'active open': isActive('expense') }">
+              <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('expense')">
+                <i class="menu-icon tf-icons bx bx-detail"></i>
+                <div data-i18n="Form Elements">Expense</div>
+              </a>
+              <ul class="menu-sub" v-show="isActive('expense')">
+                <li class="menu-item">
+                  <a href="\account_head" class="menu-link">
+                    <div data-i18n="Basic Inputs">Account Head</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="\expense" class="menu-link">
+                    <div data-i18n="Basic Inputs">Expense</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="\expenselist" class="menu-link">
+                    <div data-i18n="Input groups">Expense List</div>
+                  </a>
+                </li>
+                <li class="menu-item">
+                  <a href="\expensereport" class="menu-link">
+                    <div data-i18n="Input groups">Report</div>
+                  </a>
+                </li>
+              </ul>
+            </li>
             
             <li class="menu-item" :class="{ 'active open': isActive('report') }">
               <a href="javascript:void(0);" class="menu-link menu-toggle" @click="toggleMenu('report')">

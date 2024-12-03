@@ -24,6 +24,30 @@ const routes =  [
     asias:'/Invoice',
     name:'Invoice',
     component:()=> import('./components/Invoice')
+  },
+  {
+    path:'/Expense',
+    asias:'/Expense',
+    name:'Expense',
+    component:()=> import('./components/Expense')
+  },
+  {
+    path:'/ExpenseList',
+    asias:'/ExpenseList',
+    name:'ExpenseList',
+    component:()=> import('./components/ExpenseList')
+  },
+  {
+    path:'/ExpenseReport',
+    asias:'/ExpenseReport',
+    name:'ExpenseReport',
+    component:()=> import('./components/ExpenseReport')
+  },
+  {
+    path:'/account_head',
+    asias:'/account_head',
+    name:'account_head',
+    component:()=> import('./components/AccountHead')
   }
 ];
 

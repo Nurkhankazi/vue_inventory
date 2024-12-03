@@ -4,9 +4,22 @@ class DataService {
   login(data) {
     return http.post("/login", data);
   }
-  // orders(uid) {
-  //   return http.get(`/orders/${uid}`);
-  // }
+  saveExpense(data) {
+    return http.post("/expense/create", data);
+  }
+  getExpense() {
+    return http.get(`/expense`);
+  }
+  saveAccountHead(data) {
+    return http.post("/account_head/create", data);
+  }
+  getAccountHead() {
+    return http.get("/account_head");
+  }
+    
+  getExpenseReport() {
+    return http.get("/expense_report");
+  }
   // ordertrack(uid) {
   //   return http.get(`/ordertrack/${uid}`);
   // }

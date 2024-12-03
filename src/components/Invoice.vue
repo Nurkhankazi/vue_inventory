@@ -19,8 +19,8 @@
                 <thead>
                     <tr>
                         <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Unit Price</th>
+                        <th>Qty</th>
+                        <th>Price</th>
                         <th>Total</th>
                     </tr>
                 </thead>
@@ -28,7 +28,7 @@
                     <tr v-for="(product, index) in products" :key="index">
                         <td>{{ product.name }}</td>
                         <td>{{ product.qty }}</td>
-                        <td>{{ product.unitPrice }}</td>
+                        <td>{{ product.Price }}</td>
                         <td>{{ product.total }}</td>
                     </tr>
                 </tbody>
@@ -44,9 +44,7 @@
 
         <button id="print-button" @click="printInvoice" style="text-align: center; display: block; margin: 0 auto;">Print Invoice</button>
 
-        <footer class="footer">
-            <p>Thank you </p>
-        </footer>
+        
     </div>
 </template>
 
@@ -58,7 +56,7 @@ export default {
       customerContact: "01845756470",
       customerAddress: "Chattagram",
       products: [
-        { name: 'Product 101', quantity: 50, unitPrice: 40, total: 2000 }
+        { name: 'Product 101', qty: 50, Price: 40, total: 2000 }
       ],
       subtotal: 2000,
       tax: 100,

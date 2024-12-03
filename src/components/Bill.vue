@@ -5,7 +5,6 @@
             <p>Inventory Management</p>
         </header>
 
-        <!-- Customer Details Section -->
         <section class="customer-details">
             <h2>Customer Information</h2>
             <label for="customer-name">Name:</label>
@@ -18,15 +17,17 @@
             <textarea id="customer-address" placeholder="Enter Address"></textarea>
         </section>
 
+        <input type="text" id="add-product" placeholder="add product">
+        <button id="add-product">Add Product</button>
         <!-- Product List Section -->
         <section class="product-list">
-            <h2>Products</h2>
+            <h2 class="product-details">Products</h2>
             <table id="product-table">
                 <thead>
                     <tr>
                         <th>Product Name</th>
-                        <th>Quantity</th>
-                        <th>Unit Price</th>
+                        <th>Qty</th>
+                        <th>Price</th>
                         <th>Total</th>
                         <th>Action</th>
                     </tr>
@@ -35,15 +36,12 @@
                         <td>50</td>
                         <td>40</td>
                         <td>2000</td>
-                        <td>Edit/Delete</td>
+                        <td>Delete</td>
                     </tr>
                 </thead>
-                <tbody>
-                    <!-- Rows will be dynamically added here -->
-                </tbody>
             </table>
 
-            <button id="add-product">Add Product</button>
+            
         </section>
 
         <!-- Billing Summary Section -->
@@ -56,10 +54,6 @@
             <button id="generate-bill" @click="generateBill">Generate Bill</button>
         </section>
         
-        <!-- Footer Section -->
-        <footer class="footer">
-            <p>Thank you</p>
-        </footer>
     </div>
 </template>
 
@@ -108,6 +102,9 @@ body {
 
 h2 {
     color: #4CAF50;
+}
+.product-details{
+    text-align: center  ;
 }
 
 label {
